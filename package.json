@@ -1,0 +1,11 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "joi": "^13.0.1"
+  },"scripts": {
+    "start": "node server/index.js"
+  }
+}

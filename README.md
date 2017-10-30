@@ -1,10 +1,10 @@
 # dotenv+joi 教學
 - dotenv 是將.env文件中的全域變數加載到process.env。
-- joi 是JavaScript物件的Object schema描述語言和驗證器。
+ - joi 是JavaScript物件的Object schema描述語言和驗證器。
  
-簡單來說dotenv是用來設定開發全域變數再拿給config做使用，優點在於把變數設定值儲存在.env中可以防止有心人利用。而joi是搭配dotenv(可用也可不用)他能夠有效的驗證你輸入的設定值是否正確符合規範，規範的內容就是交給joi囉！
+簡單來說dotenv是用來設定開發全域變數再拿給config做使用，優點在於把變數設定值儲存在.env中可以防止有心人利用。而joi是搭配dotenv(可用也可不用)他能夠有效的驗證你輸入的設定值是否正確符合規範，規範的內容就是交給joi囉！
 
-例如：規範ENV_USERNAME最大長度6預設值jack
+例如： 規範ENV_USERNAME最大長度6預設值 jack
 ```js
 ENV_USERNAME: Joi.string().default('jack').max(6),
 ```
@@ -33,7 +33,7 @@ ENV_PASSWORD='1234'
 ENV_USERNAME='andy'
 ```
 2. 新增 config.js 檔
-在這裡面完成joi的驗證規範
+在這裡面完成joi的驗證規範
 ```js
 const Joi =require('joi') ;
 // require and configure dotenv, will load vars in .env in PROCESS.ENV
@@ -42,7 +42,7 @@ require('dotenv').config();
 // define validation for all the env vars
 const envVarsSchema = Joi.object({
   ENV_USERNAME: Joi.string().default('jack').max(6), //預設為jack 限制長度最大6
-  ENV_PASSWORD: Joi.number().allow(['root','sudo']) //密碼規範數字 例外密碼允許['root'與'sudo']
+  ENV_PASSWORD: Joi.number().allow(['root','sudo']) //密碼規範數字 例外密碼允許['root'與'sudo']
 }).unknown()
   .required();
 
